@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="row">
+    <div class="col-lg-8 intro">
+        <p>Here, you can make your own portfolio with a brief form...</p>
+    </div>
+    <div class="col-lg-4 button">
+        <span>Do you wanna have a try?</span>
+        <a class="btn btn-light create" href="{{ url_for('portfolio.create_portfolio') }}">Create Your Portfolio</a>
+    </div>
+</div>
+<div class="home">
+    <div class="sample">
+        <p id="greetings">Hi! I am Jingjing Wu.</p>
+        <span class="contact">Contact Me<br>wuj0710@gmail.com</span>
+        <div class="portfolio">
+            <div>
+                <img class="ts_icon icon" src="../../static/pics/online-test.png">
+                <p class="title">Technical skills</p>
+                <p class="content">I have solid experience in Python and Java, which I've used to create various web applications and tackle different programming challenges. My work includes building back-end functionality, designing user interfaces, and implementing key features like authentication and data management. I'm also comfortable using Flask for Python web development and have worked with Java frameworks like Spring.</p>
+            </div>
+            <div>
+                <img class="wd_icon icon" src="../../static/pics/hard-work.png">
+                <p class="title">Work Produced to Date</p>
+                <p class="content">I've developed a post website application that lets users create, edit, and delete posts, as well as view posts made by specific users. It's designed to be simple and intuitive while offering core features that people expect in a blog-like platform. Another project I worked on is a portfolio website application, which provides customizable templates for users to build their personal portfolios.It also allows users to leave comments on others' portfolios. </p>
+            </div>
+            <div>
+                <img class="e_icon icon" src="../../static/pics/best-employee.png">
+                <p class="title">Experience</p>
+                <p class="content">● 2024.3 - 2024.6 Gamepic
+                    <br>- Involved in both game planning and testing
+                    <br>- Identified bugs and suggested improvements to enhance the player experience
+                    <br>- Engaged in game localization
+                </p>
+            </div>
+            <p class="edit_time">Last Edited: 2024-12-28 17:00</p>
+            <div class="comment">
+                <span class="comment_username">Jingjing Wu</span><br>
+                <span class="comment_content">Feel free to leave comments!</span>
+                <span class="comment_time">Commented on 2024-12-28</span>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

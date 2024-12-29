@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="personal_page">
+    <div class="head">
+        <p id="greetings">Hi, I am {{ portfolio.name }}.</p>
+        <span class="contact">Contact Me<br>{{ portfolio.contact }}</span>
+    </div>
+    <div class="portfolio">
+        <div>
+            <img class="ts_icon icon" src="../../static/pics/online-test.png">
+            <p class="title">Technical skills</p>
+            <p class="content">{{ portfolio.tech_skills }}</p>
+        </div>
+        <div>
+            <img class="wd_icon icon" src="../../static/pics/hard-work.png">
+            <p class="title">Work Produced to Date</p>
+            <p class="content">{{ portfolio.work_produced }}</p>
+        </div>
+        <div>
+            <img class="e_icon icon" src="../../static/pics/best-employee.png">
+            <p class="title">Experience</p>
+            <p class="content">{{ portfolio.experience }}</p>
+        </div>
+        <p class="edit_time">Last Edited: {{ portfolio.date_edited.strftime('%Y-%m-%d %H:%M') }}</p>
+    </div>
+</div>
+{% if comments %}
+{% for comment in comments %}
+<div class="comment">
+    <span class="comment_username">{{ comment.username }}</span>
+    <br>
+    <span class="comment_content">{{ comment.content }}</span>
+    <br>
+    <span class="comment_time">Commented on {{ comment.comment_time.strftime('%Y-%m-%d') }}</span>
+</div>
+{% endfor %}
+{% endif %}
+<div class="input_comment">
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.content.label(class="form-control-label") }}
+            {% if form.content.errors %}
+            {{ form.content(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+                {% for error in form.content.errors %}
+                <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+            {% else %}
+            {{ form.content(class="form-control form-control-lg") }}
+            {% endif %}
+        </div>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info btn-sm") }}
+        </div>
+    </form>
+</div>
+{% if portfolio.author == current_user %}
+<div class="edit">
+    <p>These buttons can be seen only by the author.</p>
+    <a href="{{ url_for('portfolio.edit_portfolio', username=current_user.username) }}"
+        class="btn btn-primary btn-sm">Edit the
+        Portfolio</a>
+    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete the
+        Portfolio</button>
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <!-- Modal -->
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="deleteModalLabel">Want to delete it?</h1>
+                    <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                </div>
+                <div class="modal-body">
+                    All the comments will be deleted too. This change will NOT be reversible.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <form action="{{ url_for('portfolio.delete_portfolio', username=current_user.username) }}"
+                        method="POST">
+                        <input class="btn btn-danger" type="submit" value="Delete">
+                    </form>
+                    {% endif %}
+                    {% endblock content %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
