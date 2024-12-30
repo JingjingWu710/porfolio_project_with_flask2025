@@ -48,7 +48,7 @@ def delete_portfolio(username):
 @login_required
 def edit_portfolio(username):
     portfolio = Portfolio.query.filter_by(author=current_user).first_or_404()
-    if portfolio.author.username != username:  # Verify the username matches
+    if portfolio.author.username != username:
         abort(403)
     update = PorfolioForm()
     if update.validate_on_submit(): 
