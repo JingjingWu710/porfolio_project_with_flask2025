@@ -6,4 +6,4 @@ Corey Schafer (2018). _Python Flask Tutorial: Full-Featured Web App_. [Online vi
 
 # How to run it
 1. If you run it with OpenShift URL, please connect GlobalContect first.
-2. If you download all the files to your machine and run the application with your local server, go to the project folder in the terminal and type "python app.py".
+2. If you download all the files to your machine and run the application with your local server, go to the project folder in the terminal and type "pip install -r requirements.txt" to install all the modules first. Then tpye "python app.py".
