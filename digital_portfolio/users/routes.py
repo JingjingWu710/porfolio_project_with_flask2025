@@ -63,11 +63,11 @@ def account():
 def user_portfolio(username):
     user = User.query.filter_by(username=username).first_or_404()
     portfolio = Portfolio.query.filter_by(author=user).first()
-    comments = Comments.query.filter_by(portfolio_id=portfolio.id).order_by(Comments.comment_time.desc()).all()
-    form = CommentForm()
     if portfolio is None:
         flash('Please create one portfolio first', 'warning')
         return redirect(url_for('portfolio.create_portfolio'))
+    comments = Comments.query.filter_by(portfolio_id=portfolio.id).order_by(Comments.comment_time.desc()).all()
+    form = CommentForm()
     if form.validate_on_submit():
         if form.content.data:
             if current_user.is_authenticated:
