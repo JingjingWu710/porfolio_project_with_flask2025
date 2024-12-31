@@ -27,7 +27,7 @@
 {% if comments %}
 {% for comment in comments %}
 <div class="comment">
-    <a href="{{ url_for('users.user_portfolio', username=comment.username) }}" class="comment_username">{{ comment.username }}</span>
+    <a href="{{ url_for('users.user_portfolio', username=comment.username) }}" class="comment_username">{{ comment.username }}</a>
     <br>
     <span class="comment_content">{{ comment.content }}</span>
     <br>
