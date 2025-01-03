@@ -4,7 +4,7 @@
 **OpenShift URL**: https://c23128523digital-portfolio-c23128523cmt120cw2.apps.containers.cs.cf.ac.uk
 
 **References**: 
-Corey Schafer (2018). _Python Flask Tutorial: Full-Featured Web App_. [Online video]. Available at: https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH&index=1 (Accessed: 1 December 2024).
+Corey Schafer, _Python Flask Tutorial: Full-Featured Web App_, 24 Jan 2019. [Online video]. Available at: https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH&index=1 (Accessed: 1 December 2024).
 
 # How to run it
 1. If you run it with OpenShift URL, please connect GlobalContect first.
